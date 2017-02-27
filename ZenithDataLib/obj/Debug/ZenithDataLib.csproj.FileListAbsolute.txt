@@ -7,3 +7,4 @@ C:\Users\tom\Desktop\Assignment1\ZenithDataLib\ZenithDataLib\bin\Debug\EntityFra
 C:\Users\tom\Desktop\Assignment1\ZenithDataLib\ZenithDataLib\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\tom\Desktop\Assignment1\ZenithDataLib\ZenithDataLib\obj\Debug\ZenithDataLib.dll
 C:\Users\tom\Desktop\Assignment1\ZenithDataLib\ZenithDataLib\obj\Debug\ZenithDataLib.pdb
+C:\Users\tom\Desktop\Assignment1\ZenithDataLib\ZenithDataLib\obj\Debug\ZenithDataLib.csprojResolveAssemblyReference.cache

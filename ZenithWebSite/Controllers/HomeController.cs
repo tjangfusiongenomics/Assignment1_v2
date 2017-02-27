@@ -16,12 +16,6 @@ namespace ZenithWebSite.Controllers
         // get a list of events specific day
         public List<Event> get_event_by_day (List<Event> this_week,int start_index, int end_index)
         {
-            string userId = User.Identity.GetUserId();
-
-            string email = (from a in db.Users
-                            where a.Id == userId
-                            select a.UserName).FirstOrDefault();
-
 
             List<Event> output = new List<Event>();
 
@@ -34,20 +28,11 @@ namespace ZenithWebSite.Controllers
             //  event has to be active   
             // Then order the list by ascending order 
 
-            // case for everybody
-            if (userId == null) {
+
                 output = (from e in db.Events
                           where e.EventFromDateAndTime >= startDay && e.EventFromDateAndTime < EndDay && e.IsActive == true
                           select e
-                          ).OrderBy(x => x.EventFromDateAndTime.Hour).ToList<Event>();
-            }
-            // case for specific user
-            else {
-                output = (from e in db.Events
-                          where e.EventFromDateAndTime >= startDay && e.EventFromDateAndTime < EndDay && e.IsActive == true && e.EnteredByUserName == email
-                          select e
-                         ).OrderBy(x => x.EventFromDateAndTime.Hour).ToList<Event>();
-            }
+                            ).ToList<Event>();
 
             return output;
         }
@@ -77,6 +62,12 @@ namespace ZenithWebSite.Controllers
 
         public ActionResult Index()
         {
+            string userId = User.Identity.GetUserId();
+
+            string email = (from a in db.Users
+                            where a.Id == userId
+                            select a.UserName).FirstOrDefault();
+
             // get a list of all event
             List<Event> week = db.Events.ToList<Event>();
             ViewBag.week = week;
@@ -118,7 +109,6 @@ namespace ZenithWebSite.Controllers
             ViewBag.Saturday_activities = Saturday_activities;
             ViewBag.Sunday_activities = Sunday_activities;
 
-            ApplicationUserManager user;
 
             return View(db.Events.ToList<Event>());
         }

@@ -11,9 +11,12 @@ namespace ZenithDataLib.Model
     {
         [Key]
         public int EventId { get; set; }
+        [Display(Name = "Start Time")]
         public DateTime EventFromDateAndTime { get; set; }
+        [Display(Name = "End Time")]
         public DateTime EventToDateAndTime { get; set; }
         public string EnteredByUserName { get; set; }
+        [Display(Name = "Creation Date")]
         public DateTime CreationDate { get; set; }
         public bool IsActive { get; set; }
 

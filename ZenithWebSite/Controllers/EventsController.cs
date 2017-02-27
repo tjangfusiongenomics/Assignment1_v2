@@ -69,7 +69,11 @@ namespace ZenithWebSite.Controllers
                                 where a.Id == userId
                                 select a.UserName).FirstOrDefault();
 
+                // insert creater id info in the event
                 @event.EnteredByUserName = email;
+
+                // insert creation date in the event
+                @event.CreationDate = DateTime.Now;
 
                 db.Events.Add(@event);
                 db.SaveChanges();

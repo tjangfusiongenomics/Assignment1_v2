@@ -94,7 +94,7 @@ namespace ZenithWebSite.Controllers
             if (ModelState.IsValid)
             {
 
-
+                activity.CreationData = DateTime.Now;
                 db.Activities.Add(activity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
